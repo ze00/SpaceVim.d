@@ -62,10 +62,10 @@ endf
 function! AddCHeadersTitle()
     call AddCTitle()
     let macroName=toupper("__".expand("%:t:r")."__".expand("%:t:e")."")
-    call setline(line("$"), "#ifndef ".macroName)
+    call appendbufline(bufname(""), line("$"), "#ifndef ".macroName)
     call appendbufline(bufname(""), line("$"), "#define ".macroName)
     call appendbufline(bufname(""), line("$"), "")
-    call appendbufline(bufname(""), line("$"), "#endif //".macroName)
+    call appendbufline(bufname(""), line("$"), "#endif // ".macroName)
 endf
 autocmd BufNewFile *.py exec ":call AddPyTitle()"
 autocmd BufNewFile *.h,*.hpp exec ":call AddCHeadersTitle()"
@@ -78,7 +78,7 @@ set helplang=cn
 set encoding=utf8 
 set langmenu=zh_CN.UTF-8
 set wrap
-set mouse=i
+set mouse=ivn
 set selection=exclusive
 set selectmode=mouse,key
 set nolinebreak
