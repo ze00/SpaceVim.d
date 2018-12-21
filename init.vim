@@ -60,12 +60,12 @@ function! AddPyTitle()
   call appendbufline(bufname(""), line("$"), "\"\"\"")
 endf
 function! AddCHeadersTitle()
-    call AddCTitle()
-    let macroName=toupper("__".expand("%:t:r")."__".expand("%:t:e")."")
-    call appendbufline(bufname(""), line("$"), "#ifndef ".macroName)
-    call appendbufline(bufname(""), line("$"), "#define ".macroName)
-    call appendbufline(bufname(""), line("$"), "")
-    call appendbufline(bufname(""), line("$"), "#endif // ".macroName)
+  call AddCTitle()
+  let macroName=toupper("__".expand("%:t:r")."__".expand("%:t:e")."")
+  call appendbufline(bufname(""), line("$"), "#ifndef ".macroName)
+  call appendbufline(bufname(""), line("$"), "#define ".macroName)
+  call appendbufline(bufname(""), line("$"), "")
+  call appendbufline(bufname(""), line("$"), "#endif // ".macroName)
 endf
 autocmd BufNewFile *.py exec ":call AddPyTitle()"
 autocmd BufNewFile *.h,*.hpp exec ":call AddCHeadersTitle()"
