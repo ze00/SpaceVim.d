@@ -1,0 +1,26 @@
+[options]
+    enable_debug = 1
+    realtime_leader_guide = 1
+    enable_tabline_filetype_icon = 1
+    enable_statusline_display_mode = 0
+    enable_os_fileformat_icon = 1
+    buffer_index_type = 1
+    colorscheme = "gruvbox"
+    background = "dark"
+    enable_guicolors = 1
+    statusline_separator = "arrow"
+    statusline_inactive_separator = "arrow"
+    buffer_index_type = 4
+    enable_tabline_filetype_icon = 1
+    enable_statusline_display_mode = 0
+    enable_vimfiler_welcome = 0
+    relativenumber = 0
+    bootstrap_before = "myspacevim#before"
+    bootstrap_after = "myspacevim#after"
+
+# 关于模块的选项，请阅读各个模块的文档
+[[layers]]
+name = "shell"
+default_position = "bottom"
+[[layers]]
+name = "lang#c"

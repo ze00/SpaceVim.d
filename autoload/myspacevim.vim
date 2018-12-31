@@ -5,16 +5,6 @@
 " License: GPLv3
 "=============================================================================
 
-
-" SpaceVim Options: {{{
-let g:spacevim_enable_debug = 1
-let g:spacevim_realtime_leader_guide = 1
-let g:spacevim_enable_tabline_filetype_icon = 1
-let g:spacevim_enable_statusline_display_mode = 0
-let g:spacevim_enable_os_fileformat_icon = 1
-let g:spacevim_buffer_index_type = 1
-" }}}
-
 " User Defined: {{{
 let s:username = "ze00"
 let s:email = "zerozakiGeek@gmail.com"
@@ -67,37 +57,24 @@ function! AddCHeadersTitle()
   call appendbufline(bufname(""), line("$"), "")
   call appendbufline(bufname(""), line("$"), "#endif // ".macroName)
 endf
-autocmd BufNewFile *.py exec ":call AddPyTitle()"
-autocmd BufNewFile *.h,*.hpp exec ":call AddCHeadersTitle()"
-autocmd BufNewFile *.sh exec ":call AddshTitle()"
-autocmd BufNewFile *.c,*.cc,*.cpp exec ":call AddCTitle()"
-autocmd BufNewFile *.mk,[Mm]akefile exec ":call AddMkTitle()"
-au BufWritePost * if getline(1) =~ "^#!" | silent !chmod a+x <afile>
-set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
-set helplang=cn
-set encoding=utf8 
-set langmenu=zh_CN.UTF-8
-set wrap
-set mouse=ivn
-set selection=exclusive
-set selectmode=mouse,key
-set nolinebreak
-" }}}
+func! myspacevim#before() abort
 
-" SpaceVim Options: {{{
-
-let g:spacevim_enable_vimfiler_welcome = 0
-let g:spacevim_relativenumber = 0
-
-let g:spacevim_colorscheme = "gruvbox"
-let g:spacevim_background = "dark"
-let g:spacevim_enable_guicolors = 1
-let g:spacevim_statusline_separator = "arrow"
-let g:spacevim_statusline_inactive_separator = "arrow"
-let g:spacevim_buffer_index_type = 4
-let g:spacevim_enable_tabline_filetype_icon = 1
-let g:spacevim_enable_statusline_display_mode = 0
-call SpaceVim#layers#load('shell')
-call SpaceVim#layers#load('lang#c')
-call SpaceVim#layers#load('lang#rust')
+  autocmd BufNewFile *.py exec ":call AddPyTitle()"
+  autocmd BufNewFile *.h,*.hpp exec ":call AddCHeadersTitle()"
+  autocmd BufNewFile *.sh exec ":call AddshTitle()"
+  autocmd BufNewFile *.c,*.cc,*.cpp exec ":call AddCTitle()"
+  autocmd BufNewFile *.mk,[Mm]akefile exec ":call AddMkTitle()"
+  au BufWritePost * if getline(1) =~ "^#!" | silent !chmod a+x <afile>
+endf
+func! myspacevim#after() abort
+  set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+  set helplang=cn
+  set encoding=utf8 
+  set langmenu=zh_CN.UTF-8
+  set wrap
+  set mouse=ivn
+  set selection=exclusive
+  set selectmode=mouse,key
+  set nolinebreak
+endf
 " }}}
