@@ -51,7 +51,7 @@ function! AddPyTitle()
 endf
 function! AddCHeadersTitle()
   call AddCTitle()
-  let macroName=toupper("__".expand("%:t:r")."__".expand("%:t:e")."")
+  let macroName=toupper("__" . tr(expand("%"), "./", "__") . "__")
   call appendbufline(bufname(""), line("$"), "#ifndef ".macroName)
   call appendbufline(bufname(""), line("$"), "#define ".macroName)
   call appendbufline(bufname(""), line("$"), "")
